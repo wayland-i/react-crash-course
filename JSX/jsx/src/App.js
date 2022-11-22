@@ -1,9 +1,13 @@
 import './App.css';
-import React from 'react';
 
 function App() {
+  const error = false;
+
   return (
-    <h1>Hello World</h1>
+    <>
+    {error && <h1>Error</h1>}
+    {error || <h1>Success</h1>}
+    </>
   );
 }
 
