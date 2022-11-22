@@ -3,10 +3,16 @@ import './App.css';
 function App() {
   return (
     <>
-      <h1>Hello Conner</h1>
-      <h1>Hello Conner</h1>
+      <Hello name="Conner" />
+      <Hello name="Clement" /> 
+      <Hello />
     </>
   );
+}
+
+
+function Hello({name = 'User'}) {
+  return <h1>Hello {name}</h1>
 }
 
 export default App;
