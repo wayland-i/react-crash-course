@@ -1,12 +1,19 @@
 import './App.css';
 
 function App() {
-  const error = false;
+  // const error = true;
+  // return <h1>{error ? 'Error' : 'Success'}</h1>
+
+  const props = {
+    id: 'input',
+    type: 'text',
+    maxLength: 3
+  }
 
   return (
     <>
-    {error && <h1>Error</h1>}
-    {error || <h1>Success</h1>}
+      <label htmlFor="input" >Input: </label>
+      <input {...props} placeholder="user" />
     </>
   );
 }
