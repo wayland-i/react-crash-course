@@ -4,9 +4,15 @@ import React, { useState } from 'react';
 function App() {
 
   const [count, setCount] = useState(0);
+  // const [value, setValue] = useState('');
   
   return (
     <>
+      {/* <input
+        type="text"
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+      /> */}
       <Counter count={count} setCount={setCount}></Counter>
       <Counter count={count} setCount={setCount}></Counter>
     </>
