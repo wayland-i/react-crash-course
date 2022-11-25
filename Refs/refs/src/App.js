@@ -1,26 +1,22 @@
-import React, {useState, useRef} from 'react';
+import React, {forwardRef, useRef} from 'react';
 
 
 function App() {
-  const inputRef = useRef(null);
-  // console.log(inputRef);
-  // inputRef.current.focus();
-
-  const focusInput = () => {
-    inputRef.current.focus();
-  }
-
 
   return (
     <>
-     <MyInput ref={inputRef}/>
-     <button onClick={focusInput}>Focus</button>
+     <MyInput ref={handleRef}/>
+     {/* <button onClick={focusInput}>Focus</button> */}
     </>
   );
 }
 
 export default App;
 
-function MyInput(props) {
-  return <input {...props} style={{color: 'red'}}></input>
+function handleRef(domNode) {
+  console.log(domNode);
 }
+
+const MyInput = forwardRef(function MyInput(props, ref) {
+  return <input ref={ref} {...props} style={{color: 'red'}}></input>
+});
