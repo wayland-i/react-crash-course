@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Counter() {
     const [count, setCount] = useState(0);
     const [bool, setBool] = useState(false);
+
+    useEffect(() => {
+        console.log('render');
+    });
 
   return (
     <div className='counter'>
