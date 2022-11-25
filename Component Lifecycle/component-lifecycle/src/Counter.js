@@ -8,6 +8,12 @@ function Counter() {
         console.log('render');
     });
 
+    useEffect(() => {
+        console.log('count changed');
+
+        return () => console.log('cleandup count changed');
+    }, [count]);
+
   return (
     <div className='counter'>
         <button onClick={() => setBool(!bool)}>Re-Render</button>
