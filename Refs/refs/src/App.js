@@ -1,17 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 
 function App() {
   const [seconds, setSeconds] = useState(0);
+  const timerID = useRef(null);
 
   const startTimer = () => {
-    setInterval(() => {
+    timerID.current = setInterval(() => {
       setSeconds(currSeconds => currSeconds + 1);
     }, 1000);
-  }
+  };
 
   const stopTimer = () => {
-    
+    clearInterval(timerID.current);
   };
   
   return (
