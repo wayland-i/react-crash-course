@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 
 function Counter() {
     const [count, setCount] = useState(0);
     const [bool, setBool] = useState(false);
 
+    
+    useLayoutEffect(() => {
+        if (count === 3) {
+            setCount(4);
+        }
+    }, [count]);
+
     useEffect(() => {
         console.log('render');
     });
 
-    useEffect(() => {
-        console.log('count changed');
-
-        return () => console.log('cleandup count changed');
-    }, [count]);
-
+    const startTime = new Date();
+    while (new Date() - startTime < 100) {}
+    
   return (
     <div className='counter'>
         <button onClick={() => setBool(!bool)}>Re-Render</button>
