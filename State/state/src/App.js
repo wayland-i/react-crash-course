@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 
 function App() {
 
+  const [count, setCount] = useState(0);
   
   return (
     <>
-      <Counter startingCount={10}></Counter>
-      <Counter></Counter>
+      <Counter count={count} setCount={setCount}></Counter>
+      <Counter count={count} setCount={setCount}></Counter>
     </>
   );
 }
@@ -15,16 +16,18 @@ function App() {
 export default App;
 
 
-function Counter({startingCount = 0}) {
-  const [count, setCount] = useState(startingCount);
+function Counter({count, setCount}) {
+  // const [count, setCount] = useState({num: startingCount});
+  // const [count, setCount] = useState([1, 2, 3]);
+  
+
+  // setCount({num: count.num + 1});
+  // setCount({...count, otherCount: 0});
+  // setCount([...count, 4]);
   
   return (
     <>
-      <button onClick={() => {
-        setCount(prevCount => prevCount + 1);
-        setCount(prevCount => prevCount + 1);
-        setCount(prevCount => prevCount + 1);
-        }}>
+      <button onClick={() => setCount(count + 1)}>
         Increment
       </button>
       <p>Count: {count}</p>
