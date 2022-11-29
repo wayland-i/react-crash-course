@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useState, usseImperativeHandle } from 'react';
 
-function Counter() {
+forwardRef(function Counter(props, ref) {
 
     const [count, setCount] = useState(0);
+
+    useImperativeHandle(ref, () => {
+      return {
+        reset: () => setCount(0)
+      };
+    });
 
   return (
     <div>
@@ -10,6 +16,6 @@ function Counter() {
         <label>Count: {count}</label>
     </div>
   )
-}
+});
 
 export default Counter;
