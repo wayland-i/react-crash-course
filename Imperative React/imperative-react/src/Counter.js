@@ -1,6 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useState, usseImperativeHandle } from 'react';
 
-forwardRef(function Counter(props, ref) {
+export default forwardRef(function Counter(props, ref) {
 
     const [count, setCount] = useState(0);
 
@@ -17,5 +17,3 @@ forwardRef(function Counter(props, ref) {
     </div>
   )
 });
-
-export default Counter;

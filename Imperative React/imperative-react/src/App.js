@@ -12,7 +12,8 @@ function App() {
       <Counter ref={counterRef} />
       <CustomInput ref={customInputRef} />
       <button onClick={() => {
-
+        counterRef.current.reset();
+        customInputRef.current.reset();
       }}>
         Reset
       </button>

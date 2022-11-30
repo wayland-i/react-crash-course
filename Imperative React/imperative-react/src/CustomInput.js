@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
-function CustomInput() {
-    const [value, setValue] = useState('');
+export default forwardRef(function CustomInput(props, ref) {
+    const [value, setValue] = useState();
+
+    useImperativeHandle(ref, () => {
+      return {
+        reset: () => setValue('')
+      };
+    });
 
   return (
     <div>
@@ -12,6 +18,4 @@ function CustomInput() {
             />
     </div>
   )
-}
-
-export default CustomInput;
+});
