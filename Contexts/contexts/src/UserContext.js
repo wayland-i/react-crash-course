@@ -23,8 +23,10 @@ export function UserContextProvider({children}) {
     const toggleUser = () => {
       if (user === conner) {
         setUser(clement);
+        console.log("clicked")
       } else {
         setUser(conner);
+        console.log('clicked')
       }
     }
 
