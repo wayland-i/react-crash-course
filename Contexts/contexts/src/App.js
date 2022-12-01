@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
 import Profile from './Profile';
+import { UserContext } from './UserContext';
 
 
 function App() {
@@ -29,7 +30,9 @@ function App() {
 
   return (
     <>
-      <Profile user={user} />
+      <UserContext.Provider value={user}>
+        <Profile />
+      </UserContext.Provider>
       <button onClick={toggleUser}>Toggle User</button>
     </>
   );

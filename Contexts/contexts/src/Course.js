@@ -1,6 +1,9 @@
 import React from 'react'
+import { UserContext } from './UserContext';
+import { useContext } from 'react';
 
-function Course({user}) {
+function Course() {
+    const user = useContext(UserContext);
   return (
     <p>Your course is {user.course}</p>
   )

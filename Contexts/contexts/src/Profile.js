@@ -2,13 +2,13 @@ import React from 'react'
 import WelcomeBanner from './WelcomeBanner';
 import Course from './Course';
 
-function Profile({user}) {
+function Profile() {
   return (
     <>
-        <WelcomeBanner user={user} />
-        <Course user={user} />
+        <WelcomeBanner />
+        <Course />
     </>
-  )
+  );
 }
 
-export default Profile
+export default Profile;
