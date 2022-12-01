@@ -8,7 +8,11 @@ function App() {
     <>
 
     <ul>
-      {/*  */}
+      { items.map(item => {
+        return (
+          <li key={item}>{item}</li>
+        );
+      }) }
     </ul>
 
     <input 
