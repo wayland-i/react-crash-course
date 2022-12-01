@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, Fragment} from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -10,7 +10,10 @@ function App() {
     <ul>
       { items.map(item => {
         return (
-          <li key={item}>{item}</li>
+          <Fragment key={item}>
+            <li key={item}>{item}</li>
+            <li>Test</li>
+          </Fragment>
         );
       }) }
     </ul>
