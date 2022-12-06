@@ -7,8 +7,4 @@ export default memo(function (props) {
     while (new Date() - startTime < 1000) {}
 
     return <button {...props} style={{color: 'red'}} />
-}, areEqual);
-
-function areEqual(prevProps, newProps) {
-    return true;
-}
+});
