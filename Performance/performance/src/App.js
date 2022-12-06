@@ -1,6 +1,7 @@
 // import './App.css';
-import React, {useState, useMemo} from 'react';
-import MyButton from './MyButton';
+import React, {useState, useMemo, useCallback, lazy} from 'react';
+// import MyButton from './MyButton';
+const MyButton = lazy(() => import('./MyButton'));
 
 function App() {
   const [num, setNum] = useState(10);
@@ -9,6 +10,10 @@ function App() {
     console.log('calculating fib value');
     return fib(num)
   }, [num]);
+
+  const onClickLog = useCallback(() => {
+      console.log(logValue)
+  }, [logValue])
 
   return (
     <>
@@ -24,10 +29,13 @@ function App() {
         value={logValue}
         onChange={(event) => setLogValue(event.target.value)}
       />
+      {
+        logValue.length > 0 ? 
+          <MyButton onClick={onClickLog}>Log Value</MyButton> : 
+          null
+      }
 
-      <MyButton onClick={() => {
-        console.log(logValue);
-      }}>Log Value</MyButton>
+      
     </>
   );
 }
