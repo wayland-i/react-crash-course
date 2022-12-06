@@ -1,16 +1,20 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 import MyButton from './MyButton';
 
 function App() {
   const [num, setNum] = useState(10);
   const [logValue, setLogValue] = useState('');
+  const fibValue = useMemo(() => {
+    console.log('calculating fib value');
+    return fib(num)
+  }, [num]);
 
   return (
     <>
-      <h1>Fib {num} is {fib(num)}</h1>
+      <h1>Fib {num} is {fibValue}</h1>
       <input
-        type="number"
+        typbe="number"
         value={num}
         onChange={(event) => setNum(parseInt(event.target.value))}
       />
