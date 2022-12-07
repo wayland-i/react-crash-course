@@ -6,6 +6,8 @@ function App() {
     <>
       <Counter startingCount={10}/>      
       <Counter />
+      <div className='left'></div>
+      <div className='right'></div>
     </>
   );
 }

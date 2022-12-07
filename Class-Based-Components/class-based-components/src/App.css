@@ -1,3 +1,18 @@
+.left {
+  background-color: orange;
+  position: absolute;
+  height: 100vh;
+  width: 50vw;
+}
+
+.right {
+  background-color: lightgreen;
+  position: absolute;
+  left: 50vw;
+  height: 100vh;
+  width: 50vw;
+}
+
 .App {
   text-align: center;
 }
