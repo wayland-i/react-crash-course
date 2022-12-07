@@ -1,5 +1,5 @@
 import './App.css';
-import { Component, useState } from 'react';
+import { createRef, Component, useState } from 'react';
 
 function App() {
   const [shouldRender, setShouldRender] = useState(true);
@@ -28,30 +28,20 @@ class Counter extends Component {
     super(props);
     this.state = {
         count: props.startingCount ?? 0
-    }
+    };
+    this.buttonRef = createRef();
   }
 
   componentDidMount() {
     console.log('mounted');
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps, prevState);
-  }
-
-  componentWillUnmount(){
-    console.log('unmounting');
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState);
-    return nextState.count < 3;
+    console.log(this.buttonRef);
   }
 
   render() {
+    console.log(this.buttonRef);
     return (
       <>
-        <button onClick={() => {
+        <button ref={this.buttonRef} onClick={() => {
           this.setState({
             count: this.state.count + 1
           });
