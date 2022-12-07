@@ -27,6 +27,10 @@ class ErrorBoundry extends Component {
     return { hasError: true, error };
   }
 
+  // componentDidCatch(error, errorInfo) {
+  //   logErrorToServer(error, errorInfo);
+  // }
+
   render() {
     if (this.state.hasError) {
       return this.props.fallback
