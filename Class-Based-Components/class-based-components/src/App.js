@@ -43,6 +43,11 @@ class Counter extends Component {
     console.log('unmounting');
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps, nextState);
+    return nextState.count < 3;
+  }
+
   render() {
     return (
       <>
