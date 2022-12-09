@@ -1,11 +1,16 @@
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+
+let renderCount = 0;
 
 function App() {
+    renderCount++;
+    console.log('rendering');
   return (
     <>
       <Counter initialValue={5}/>
       <Counter />
+      <p>Render count: {renderCount}</p>
     </>
   );
 }
