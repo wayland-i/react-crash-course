@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, Profiler} from 'react';
+import {useState, Profiler, useDebugValue} from 'react';
 
 let renderCount = 0;
 
@@ -18,9 +18,11 @@ function App() {
 export default App;
 
 
-function Counter({initialValue = 0}) {
-  const [count, setCount] = useState(initialValue);
+function Counter({initialValue}) {
+  const [count, setCount] = useMyState(initialValue);
 
+  const startTime = Date.now();
+  while (new Date() - startTime < 500) {}
   return (
     <>
       <button onClick={() => setCount(count + 1)}>
@@ -29,4 +31,9 @@ function Counter({initialValue = 0}) {
       <p>Count: {count}</p>
     </>
   );
+}
+
+function useMyState(initialValue = 0) {
+  useDebugValue('hello world');
+  return useState(initialValue);
 }
