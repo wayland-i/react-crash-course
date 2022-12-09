@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from 'react';
+import {useState, Profiler} from 'react';
 
 let renderCount = 0;
 
@@ -7,11 +7,11 @@ function App() {
     renderCount++;
     console.log('rendering');
   return (
-    <>
+    <Profiler id="App" onRender={() => console.log('commit')}>
       <Counter initialValue={5}/>
       <Counter />
       <p>Render count: {renderCount}</p>
-    </>
+    </Profiler>
   );
 }
 
